@@ -1,7 +1,15 @@
 import 'package:get/get.dart';
 
+import 'package:alarm_clock_flutter/app/modules/alarm/bindings/alarm_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/alarm/views/alarm_view.dart';
+import 'package:alarm_clock_flutter/app/modules/clock/bindings/clock_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
 import 'package:alarm_clock_flutter/app/modules/home/bindings/home_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/home/views/home_view.dart';
+import 'package:alarm_clock_flutter/app/modules/stopwatch/bindings/stopwatch_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/stopwatch/views/stopwatch_view.dart';
+import 'package:alarm_clock_flutter/app/modules/timer/bindings/timer_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/timer/views/timer_view.dart';
 
 part 'app_routes.dart';
 
@@ -15,6 +23,26 @@ class AppPages {
       name: _Paths.HOME,
       page: () => HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.CLOCK,
+      page: () => ClockView(),
+      binding: ClockBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALARM,
+      page: () => AlarmView(),
+      binding: AlarmBinding(),
+    ),
+    GetPage(
+      name: _Paths.TIMER,
+      page: () => TimerView(),
+      binding: TimerBinding(),
+    ),
+    GetPage(
+      name: _Paths.STOPWATCH,
+      page: () => StopwatchView(),
+      binding: StopwatchBinding(),
     ),
   ];
 }
