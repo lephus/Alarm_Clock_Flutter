@@ -8,13 +8,19 @@ class ClockView extends StatefulWidget {
 }
 
 class _ClockViewState extends State<ClockView> {
+  Timer timer;
   @override
   // ignore: must_call_super
   void initState() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    this.timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
       });
     });
+  }
+  @override
+  void dispose() {
+    this.timer.cancel();
+    super.dispose();
   }
 
   @override

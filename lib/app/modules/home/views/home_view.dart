@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:alarm_clock_flutter/app/modules/alarm/controllers/alarm_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/alarm/views/alarm_view.dart';
 import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
@@ -9,14 +11,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   final controllerAlarm = Get.put(AlarmController());
   final controllerTimer = Get.put(TimerController());
   final controllerStopwatch = Get.put(StopwatchController());
+
   @override
   Widget build(BuildContext context) {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      controller.setTime();
+    });
     return Scaffold(
       backgroundColor: Color(0xFF2D2F41),
       body: Row(
@@ -61,21 +68,21 @@ class HomeView extends GetView<HomeController> {
                 Flexible(
                     flex: 2,
                     fit: FlexFit.tight,
-                    child:  Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          controller.formattedTime,
-                          style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 54, fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          controller.formattedDate,
-                          style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 24, fontWeight: FontWeight.w100),
-                        ),
-                      ],
-                    )
-                ),
+                    child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                             Text(
+                              '${controller.formattedTime.value}',
+                              style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 54, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              '${controller.formattedDate.value}',
+                              style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 24, fontWeight: FontWeight.w100),
+                            ),
+                          ],
+                        )
+                    ),
                 Flexible(
                   flex: 4,
                   fit: FlexFit.loose,
@@ -147,5 +154,4 @@ class HomeView extends GetView<HomeController> {
         )
     );
   }
-
 }

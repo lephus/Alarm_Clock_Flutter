@@ -1,9 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class AlarmController extends GetxController {
   //TODO: Implement AlarmController
 
-  final count = 0.obs;
+  TextEditingController titleTextEditingController = new TextEditingController();
+
+  var formattedTime = DateFormat('HH:mm').format(DateTime.now()).toString().obs;
+  var formattedDate = DateFormat('yMMMd').format(DateTime.now()).toString().obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +21,11 @@ class AlarmController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  void settingDate(var Date){
+    formattedDate.value = DateFormat('yMMMd').format(DateTime.parse(Date)).toString();
+  }
+  void settingTime(var Time){
+    formattedTime.value =  DateFormat('HH:mm').format(DateTime.parse(Time)).toString();
+  }
 }
