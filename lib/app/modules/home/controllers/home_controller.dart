@@ -9,7 +9,7 @@ class HomeController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    var offsetSign = ''+timezoneString;
+    offsetSign = ''+timezoneString;
     if(!timezoneString.startsWith('-')) offsetSign = '+'+timezoneString;
     super.onInit();
   }

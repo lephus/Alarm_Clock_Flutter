@@ -54,4 +54,34 @@ class AlarmDatabase{
     var result = await db.insert(tableAlarm, alarmInfo.toMap());
     print('insertAlarm : $result');
   }
+
+  Future<List<AlarmInfo>> getAlarms() async{
+    List<AlarmInfo> _alarms = [];
+    var db = await this.database;
+    var result = await db.query(tableAlarm);
+    result.forEach((element) {
+      var alarmInfo = AlarmInfo.fromMap(element);
+      _alarms.add(alarmInfo);
+    });
+    return _alarms;
+  }
+
+  Future<int> deleteAlarm(int id) async{
+    var db = await this.database;
+    return await db.delete(tableAlarm, where: '$columnId = ?', whereArgs: [id]);
+  }
+
+  Future<int> activeOrUnActiveAlarm(AlarmInfo alarmInfo)async{
+    var db = await this.database;
+    int tmp = 0;
+    if(alarmInfo.isPending == 0){
+      tmp = 1;
+    }
+    return await db.rawUpdate('''
+    UPDATE ${tableAlarm} 
+    SET ${columnPending} = ? 
+    WHERE ${columnId} = ?
+    ''',
+        [tmp, alarmInfo.id]);
+  }
 }
