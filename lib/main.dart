@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   var initializationSettingsAndroid = AndroidInitializationSettings('phu_logo');
@@ -15,7 +16,7 @@ void main() async{
     onDidReceiveLocalNotification: ( int id, String title, String body, String payload) async {}
     );
   var initializationSettings = InitializationSettings(
-      initializationSettingsAndroid,InitializationSettingsIOS);
+      android: initializationSettingsAndroid,iOS: InitializationSettingsIOS);
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (String payload) async{
         if  (payload != null) {

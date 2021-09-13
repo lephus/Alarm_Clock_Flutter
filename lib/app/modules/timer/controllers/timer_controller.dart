@@ -3,7 +3,11 @@ import 'package:get/get.dart';
 class TimerController extends GetxController {
   //TODO: Implement TimerController
 
-  final count = 0.obs;
+  final isStart = false.obs;
+  var endTime = 0.obs;
+  var hour = 0.obs;
+  var minute = 0.obs;
+  var se = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +20,5 @@ class TimerController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+  void changeIsStart() => isStart.value == true ? isStart.value = false : isStart.value = true;
 }

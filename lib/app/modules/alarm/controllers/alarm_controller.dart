@@ -40,7 +40,6 @@ class AlarmController extends GetxController {
       alarms = value;
       alarms = alarms.reversed.toList();
       isDataProcessingSpec.value = false;
-      print('get list alarm is successfully');
     }).onError((error, stackTrace){
       isDataProcessingSpec.value = false;
       print('get list alarm is Error: $error');
@@ -48,7 +47,6 @@ class AlarmController extends GetxController {
   }
   void insertAlarmDatabase(var alarm){
     _alarmDatabase.insertAlarm(alarm);
-    print('insert Alarm successfully');
   }
   void settingDate(var Date){
     formattedDate.value = DateFormat("yyyy-MM-dd").format(Date);

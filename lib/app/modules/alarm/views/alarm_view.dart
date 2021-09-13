@@ -1,9 +1,11 @@
 import 'dart:math';
 import 'package:alarm_clock_flutter/app/data/theme_data.dart';
 import 'package:alarm_clock_flutter/app/modules/alarm/alarm_info.dart';
+import 'package:alarm_clock_flutter/main.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import '../controllers/alarm_controller.dart';
 class AlarmView extends GetView<AlarmController> {
@@ -28,7 +30,7 @@ class AlarmView extends GetView<AlarmController> {
               ),
               Obx(()=>Expanded(
                   child: controller.isDataProcessingSpec.value == true ?  Center(
-                    child: Text('Loading...', style: TextStyle(color: Colors.white, ),),
+                    child: Center(child: Text("Loading..."),),
                   ) : ListView(
                             children: controller.alarms.map<Widget>((alarm){
                             return Container(
@@ -62,7 +64,14 @@ class AlarmView extends GetView<AlarmController> {
                                         children: <Widget>[
                                           Icon(Icons.label_important_outline, color: Colors.greenAccent,size: 18.0,),
                                           SizedBox(width: 6.0,),
-                                          Text(alarm.title, style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 18.0),),
+                                          Container(
+                                            width: 150,
+                                            child: Text(
+                                              alarm.title,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 18.0),
+                                            ),
+                                          )
                                         ],
                                       ),
                                       Switch(
@@ -298,6 +307,8 @@ class AlarmView extends GetView<AlarmController> {
                           );
                           controller.insertAlarmDatabase(alarmInfo);
                           controller.refreshListAlarm();
+                          var rng = new Random();
+                          scheduleAlarm(alarmInfo.alarmDateTime, alarmInfo.title, rng.nextInt(9999999));
                           Get.back();
                         },
                         child: Text('Save',
@@ -315,6 +326,34 @@ class AlarmView extends GetView<AlarmController> {
               ],
             )),
       ),
+    );
+  }
+  void scheduleAlarm(DateTime dateTime, String body, int id)async{
+    var scheduleNotificationDateTime = dateTime;
+    var androidNotificationDetails = AndroidNotificationDetails(
+        "channelId",
+        "channelName",
+        "channelDescription",
+      icon: "phu_logo",
+      sound: RawResourceAndroidNotificationSound('alarm_ringtone'),
+      largeIcon: DrawableResourceAndroidBitmap('phu_logo')
+    );
+    var iosNotificationDetails = IOSNotificationDetails(
+      sound: 'alarm_ringtone.mp3',
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true
+    );
+    var platformChannelSpecifics = NotificationDetails(
+        android: androidNotificationDetails, iOS: iosNotificationDetails
+    );
+    // ignore: deprecated_member_use
+    await flutterLocalNotificationsPlugin.schedule(
+        id,
+        body,
+        "Clock & Been love memory",
+        scheduleNotificationDateTime,
+        platformChannelSpecifics
     );
   }
 }
