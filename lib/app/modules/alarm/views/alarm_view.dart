@@ -30,8 +30,10 @@ class AlarmView extends GetView<AlarmController> {
               ),
               Obx(()=>Expanded(
                   child: controller.isDataProcessingSpec.value == true ?  Center(
-                    child: Center(child: Text("Loading..."),),
+                    child: Center(child: Text("Loading...", style: TextStyle(color:Colors.white),),),
                   ) : ListView(
+                            addAutomaticKeepAlives: false,
+                            cacheExtent: 100.0,
                             children: controller.alarms.map<Widget>((alarm){
                             return Container(
                                 margin: EdgeInsets.only(bottom: 28.0),

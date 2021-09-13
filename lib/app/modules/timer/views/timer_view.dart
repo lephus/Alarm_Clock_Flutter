@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 import 'package:get/get.dart';
 
@@ -16,7 +17,61 @@ class TimerView extends GetView<TimerController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("data")
+              Container(
+                height: Get.height/3,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: ListWheelScrollView(
+                          children: [
+                            Text("1", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            Text("2", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            Text("3", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            Text("4", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            Text("5", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            Text("6", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            Text("7", style: TextStyle(color:Colors.white, fontSize: 28),),
+                          ],
+                          itemExtent: 35,
+                          diameterRatio: 1,
+                          offAxisFraction: -0.4
+                        )
+                    ),
+                    Expanded(
+                        child: ListWheelScrollView(
+                            children: [
+                              Text("1", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("2", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("3", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("4", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("5", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("6", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("7", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            ],
+                            itemExtent: 35,
+                            diameterRatio: 1,
+                            offAxisFraction: -0.4
+                        )
+                    ),
+                    Expanded(
+                        child: ListWheelScrollView(
+                            children: [
+                              Text("1", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("2", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("3", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("4", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("5", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("6", style: TextStyle(color:Colors.white, fontSize: 28),),
+                              Text("7", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            ],
+                            itemExtent: 35,
+                            diameterRatio: 1,
+                            offAxisFraction: -0.4
+                        )
+                    ),
+                  ],
+                )
+              )
             ],
           ),
         )
