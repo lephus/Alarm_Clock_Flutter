@@ -1,15 +1,23 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:alarm_clock_flutter/app/data/theme_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+// import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+// import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 import 'package:get/get.dart';
 
 import '../controllers/timer_controller.dart';
-
+List<int> listTimer = [];
 class TimerView extends GetView<TimerController> {
   int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 30;
+
   @override
   Widget build(BuildContext context) {
+    listTimer.clear();
+    for(int i = 0; i<=60; i++){
+      listTimer.add(i);
+    }
     return SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -23,53 +31,68 @@ class TimerView extends GetView<TimerController> {
                   children: [
                     Expanded(
                         child: ListWheelScrollView(
-                          children: [
-                            Text("1", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            Text("2", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            Text("3", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            Text("4", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            Text("5", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            Text("6", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            Text("7", style: TextStyle(color:Colors.white, fontSize: 28),),
+                            itemExtent: 45,
+                            magnification: 1.5,
+                            useMagnifier: true,
+                            perspective: 0.005,
+                            onSelectedItemChanged: (value){
+                              controller.setTimeHour(value);
+                            },
+                            children:  <Widget>[
+                                ...listTimer.map((int number) {
+                              return Text("${number}", style: TextStyle(color: Colors.white, fontSize: 20.0),);
+                            })
+                            ],
+                        )
+                    ),
+                    Expanded(
+                        child: ListWheelScrollView(
+                          itemExtent: 45,
+                          magnification: 1.5,
+                          useMagnifier: true,
+                          perspective: 0.005,
+                          onSelectedItemChanged: (value){
+                            controller.setTimeMinute(value);
+                          },
+                          children:  <Widget>[
+                            ...listTimer.map((int number) {
+                              return Text("${number}", style: TextStyle(color: Colors.white, fontSize: 20.0),);
+                            })
                           ],
-                          itemExtent: 35,
-                          diameterRatio: 1,
-                          offAxisFraction: -0.4
                         )
                     ),
                     Expanded(
                         child: ListWheelScrollView(
-                            children: [
-                              Text("1", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("2", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("3", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("4", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("5", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("6", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("7", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            ],
-                            itemExtent: 35,
-                            diameterRatio: 1,
-                            offAxisFraction: -0.4
+                          itemExtent: 45,
+                          magnification: 1.5,
+                          useMagnifier: true,
+                          perspective: 0.005,
+                          onSelectedItemChanged: (value){
+                            controller.setTimeSecond(value);
+                          },
+                          children:  <Widget>[
+                            ...listTimer.map((int number) {
+                              return Text("${number}", style: TextStyle(color: Colors.white, fontSize: 20.0),);
+                            })
+                          ],
                         )
-                    ),
-                    Expanded(
-                        child: ListWheelScrollView(
-                            children: [
-                              Text("1", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("2", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("3", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("4", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("5", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("6", style: TextStyle(color:Colors.white, fontSize: 28),),
-                              Text("7", style: TextStyle(color:Colors.white, fontSize: 28),),
-                            ],
-                            itemExtent: 35,
-                            diameterRatio: 1,
-                            offAxisFraction: -0.4
-                        )
-                    ),
+                    )
                   ],
+                )
+              ),
+              Container(
+                height: Get.height/5,
+                  alignment: Alignment.center,
+                  child: Obx(()=> Text('${controller.hour.value}'+":"+"${controller.minute.value}"+":"+"${controller.second.value}",
+                  style: TextStyle(color: CustomColors.minHandEndColor, fontSize: 34.0)),
+                )
+              ),
+              SizedBox(
+                height: 65.0,
+                width: 65.0,
+                child: IconButton(
+                    onPressed: (){print("click");},
+                    icon: Icon(Icons.play_circle_fill_outlined, color: CustomColors.minHandEndColor,size: 70.0,)
                 )
               )
             ],

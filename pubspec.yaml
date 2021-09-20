@@ -6,6 +6,7 @@ environment:
   sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
+  circular_countdown_timer: 0.1.0
   flutter_datetime_picker: 1.5.0
   flutter_countdown_timer: 3.0.1
   flutter_local_notifications: 7.0.0
