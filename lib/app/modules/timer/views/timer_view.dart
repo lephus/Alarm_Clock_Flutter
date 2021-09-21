@@ -2,16 +2,10 @@
 
 import 'package:alarm_clock_flutter/app/data/theme_data.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
-// import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/timer_controller.dart';
 List<int> listTimer = [];
 class TimerView extends GetView<TimerController> {
-  int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 30;
-
   @override
   Widget build(BuildContext context) {
     listTimer.clear();
@@ -83,15 +77,15 @@ class TimerView extends GetView<TimerController> {
               Container(
                 height: Get.height/5,
                   alignment: Alignment.center,
-                  child: Obx(()=> Text('${controller.hour.value}'+":"+"${controller.minute.value}"+":"+"${controller.second.value}",
-                  style: TextStyle(color: CustomColors.minHandEndColor, fontSize: 34.0)),
+                  child: Obx(()=> Text('${controller.getTimeHour()}'+":"+"${controller.getTimeMinute()}"+":"+"${controller.getTimeSecond()}",
+                  style: TextStyle(color: CustomColors.minHandEndColor, fontSize: 38.0, fontWeight: FontWeight.w800)),
                 )
               ),
               SizedBox(
                 height: 65.0,
                 width: 65.0,
                 child: IconButton(
-                    onPressed: (){print("click");},
+                    onPressed: (){Get.toNamed("/run-timer?time=${controller.getSumTime()}");},
                     icon: Icon(Icons.play_circle_fill_outlined, color: CustomColors.minHandEndColor,size: 70.0,)
                 )
               )

@@ -6,6 +6,8 @@ import 'package:alarm_clock_flutter/app/modules/clock/bindings/clock_binding.dar
 import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
 import 'package:alarm_clock_flutter/app/modules/home/bindings/home_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/home/views/home_view.dart';
+import 'package:alarm_clock_flutter/app/modules/notebook/bindings/notebook_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/notebook/views/notebook_view.dart';
 import 'package:alarm_clock_flutter/app/modules/runTimer/bindings/run_timer_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/runTimer/views/run_timer_view.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/bindings/stopwatch_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.RUN_TIMER,
       page: () => RunTimerView(),
       binding: RunTimerBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTEBOOK,
+      page: () => NotebookView(),
+      binding: NotebookBinding(),
     ),
   ];
 }

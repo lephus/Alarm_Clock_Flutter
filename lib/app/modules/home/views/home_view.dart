@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:alarm_clock_flutter/app/modules/alarm/controllers/alarm_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/alarm/views/alarm_view.dart';
 import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
+import 'package:alarm_clock_flutter/app/modules/notebook/controllers/notebook_controller.dart';
+import 'package:alarm_clock_flutter/app/modules/notebook/views/notebook_view.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/controllers/stopwatch_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/views/stopwatch_view.dart';
 import 'package:alarm_clock_flutter/app/modules/timer/controllers/timer_controller.dart';
@@ -11,14 +13,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   final controllerAlarm = Get.put(AlarmController());
   final controllerTimer = Get.put(TimerController());
   final controllerStopwatch = Get.put(StopwatchController());
-
+  final controllerNotebook = Get.put(NotebookController());
   @override
   Widget build(BuildContext context) {
     Timer.periodic(Duration(seconds: 1), (timer) {
@@ -40,9 +41,11 @@ class HomeView extends GetView<HomeController> {
                 buildMenuButton('Timer', 'timer_icon.png',2),
                 SizedBox(height: 30,),
                 buildMenuButton('Stopwatch', 'stopwatch_icon.png',3),
+                SizedBox(height: 30,),
+                buildMenuButton('Notebook', 'notebook.png',4),
               ],
             )),
-          VerticalDivider(color: Colors.white70,width: 1,),
+         // VerticalDivider(color: Colors.white70,width: 1,),
           Obx(()=>ExpandScren())
         ],
       )
@@ -61,7 +64,7 @@ class HomeView extends GetView<HomeController> {
                   flex: 1,
                   fit: FlexFit.tight,
                   child: Text(
-                    'Clock & Been love memory',
+                    'Clock & Notebook',
                     style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 24),
                   ),
                 ),
@@ -126,8 +129,12 @@ class HomeView extends GetView<HomeController> {
       }
       if(controller.count.value == 2){
         return Expanded(child: TimerView());
-      }else{
+      }
+      if(controller.count.value == 3){
         return Expanded(child: StopwatchView());
+      }
+      else{
+        return Expanded(child: NotebookView());
       }
     }
   }

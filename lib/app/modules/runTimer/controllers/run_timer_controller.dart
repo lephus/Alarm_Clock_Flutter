@@ -2,8 +2,7 @@ import 'package:get/get.dart';
 
 class RunTimerController extends GetxController {
   //TODO: Implement RunTimerController
-
-  final count = 0.obs;
+  final isStart = true.obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +15,5 @@ class RunTimerController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+  void changeStart() => isStart.value == false ? isStart.value = true : isStart.value = false;
 }

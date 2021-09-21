@@ -10,6 +10,7 @@ abstract class Routes {
   static const TIMER = _Paths.TIMER;
   static const STOPWATCH = _Paths.STOPWATCH;
   static const RUN_TIMER = _Paths.RUN_TIMER;
+  static const NOTEBOOK = _Paths.NOTEBOOK;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const TIMER = '/timer';
   static const STOPWATCH = '/stopwatch';
   static const RUN_TIMER = '/run-timer';
+  static const NOTEBOOK = '/notebook';
 }
