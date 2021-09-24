@@ -52,8 +52,23 @@ class RunTimerView extends GetView<RunTimerController> {
                   controller.isStart.value = false;
                 },
               )),
+          Obx(()=>RaisedButton(
+                  color: CustomColors.pageBackgroundColor,
+                  shape: const StadiumBorder(),
+                  onPressed: (){
+                    controller.isStart.value == true ?
+                    _controller.pause() :
+                    _controller.resume();
+                    controller.changeStart();
+                  },
+                  child: controller.isStart.value == true ?
+                  Icon(Icons.pause_circle_outline, color: CustomColors.minHandEndColor,size: 60.0,):
+                  Icon(Icons.play_circle_outline, color: CustomColors.minHandEndColor,size: 60.0,)
+              )
+          ),
+          SizedBox(height: 20.0,),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
@@ -72,31 +87,14 @@ class RunTimerView extends GetView<RunTimerController> {
                     ),
                   )
               ),
+
               SizedBox(
-                width: 10,
-              ),
-              SizedBox(
-                  height: 65.0,
-                  width: 65.0,
-                  child: Obx(()=>IconButton(
-                      onPressed: (){
-                        controller.isStart.value == true ?
-                        _controller.pause() :
-                        _controller.resume();
-                        controller.changeStart();
-                      },
-                      icon: controller.isStart.value == true ?
-                      Icon(Icons.pause_circle_outline, color: CustomColors.minHandEndColor,size: 70.0,):
-                      Icon(Icons.play_circle_outline, color: CustomColors.minHandEndColor,size: 70.0,)
-                  ))
-              ),
-              SizedBox(
-                width: 30,
+                width: 20,
               ),
               Expanded(
                 child: OutlinedButton.icon(
                   icon: Icon(Icons.refresh),
-                  label: Text("ReStart", style: TextStyle(color: Colors.white),),
+                  label: Text("ReStart", style: TextStyle(color: Colors.white,),),
                   onPressed: () => _controller.restart(duration: _duration),
                   style: ElevatedButton.styleFrom(
                     side: BorderSide(width: 1.0, color: Colors.white),

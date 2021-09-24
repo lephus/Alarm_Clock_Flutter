@@ -81,13 +81,11 @@ class TimerView extends GetView<TimerController> {
                   style: TextStyle(color: CustomColors.minHandEndColor, fontSize: 38.0, fontWeight: FontWeight.w800)),
                 )
               ),
-              SizedBox(
-                height: 65.0,
-                width: 65.0,
-                child: IconButton(
-                    onPressed: (){Get.toNamed("/run-timer?time=${controller.getSumTime()}");},
-                    icon: Icon(Icons.play_circle_fill_outlined, color: CustomColors.minHandEndColor,size: 70.0,)
-                )
+              RaisedButton(
+                  color: CustomColors.pageBackgroundColor,
+                  shape: const StadiumBorder(),
+                  onPressed: (){Get.toNamed("/run-timer?time=${controller.getSumTime()}");},
+                  child: Icon(Icons.play_circle_fill_outlined, color: CustomColors.minHandEndColor,size: 70.0,)
               )
             ],
           ),

@@ -5,6 +5,7 @@ class CustomColors {
   static Color dividerColor = Colors.white54;
   static Color pageBackgroundColor = Color(0xFF2D2F41);
   static Color menuBackgroundColor = Color(0xFF242634);
+  static Color blackColor = Colors.black;
 
   static Color clockBG = Color(0xFF444974);
   static Color clockOutline = Color(0xFFEAECFF);

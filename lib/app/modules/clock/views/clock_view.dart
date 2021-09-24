@@ -49,7 +49,7 @@ class ClockPainter extends CustomPainter{
     var centerX = size.width / 2;
     var centerY = size.height / 2;
     var center = Offset(centerX, centerY);
-    var radius = min(centerX, centerY)-30;
+    var radius = min(centerX, centerY)-15;
 
     var fillBrush = Paint()
       ..color = Color(0xFF444974);
@@ -93,19 +93,19 @@ class ClockPainter extends CustomPainter{
     canvas.drawCircle(center, radius, fillBrush);
     canvas.drawCircle(center, radius, outlineBrush);
 
-    var secHandX = centerX + 95 * cos(dateTime.second * 6 * pi/180);
-    var secHandY = centerY + 95 * sin(dateTime.second * 6 * pi/180);
+    var secHandX = centerX + 85 * cos(dateTime.second * 6 * pi/180);
+    var secHandY = centerY + 85 * sin(dateTime.second * 6 * pi/180);
     canvas.drawLine(center, Offset(secHandX, secHandY), secHanBrush);
-    var miuHandX = centerX + 80 * cos(dateTime.minute * 6 * pi/180);
-    var miuHandY = centerY + 80 * sin(dateTime.minute * 6 * pi/180);
+    var miuHandX = centerX + 70 * cos(dateTime.minute * 6 * pi/180);
+    var miuHandY = centerY + 70 * sin(dateTime.minute * 6 * pi/180);
     canvas.drawLine(center, Offset(miuHandX, miuHandY), miuHanBrush);
-    var hourHandX = centerX + 60 * cos((dateTime.hour * 30 + dateTime.hour * 0.5) * pi/180);
-    var hourHandY = centerY + 60 * sin((dateTime.hour * 30 + dateTime.hour * 0.5) * pi/180);
+    var hourHandX = centerX + 50 * cos((dateTime.hour * 30 + dateTime.hour * 0.5) * pi/180);
+    var hourHandY = centerY + 50 * sin((dateTime.hour * 30 + dateTime.hour * 0.5) * pi/180);
     canvas.drawLine(center, Offset(hourHandX, hourHandY), hourHanBrush);
 
     var outerCircleRadius = radius;
     var innterCircleRadius = radius - 14;
-    canvas.drawCircle(center, 7, centerFillBrush);
+    canvas.drawCircle(center, 5, centerFillBrush);
     for(int i = 0 ; i<360; i+=5){
       var x1 = centerX + outerCircleRadius * cos(  i * pi / 180);
       var y1 = centerX + outerCircleRadius * sin(  i * pi / 180);
@@ -125,7 +125,6 @@ class ClockPainter extends CustomPainter{
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return true;
   }
 

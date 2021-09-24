@@ -1,33 +1,29 @@
-class AlarmInfo {
+class NotebookInfo {
   int id;
   String title;
+  String description;
   DateTime alarmDateTime;
   int isPending;
-  String dayTime;
-  String music;
-  AlarmInfo(
+
+  NotebookInfo(
       {this.id,
         this.title,
+        this.description,
         this.alarmDateTime,
-        this.isPending,
-        this.dayTime,
-        this.music
-      });
+        this.isPending});
 
-  factory AlarmInfo.fromMap(Map<String, dynamic> json) => AlarmInfo(
+  factory NotebookInfo.fromMap(Map<String, dynamic> json) => NotebookInfo(
     id: json["id"],
     title: json["title"],
+    description: json["description"],
     alarmDateTime: DateTime.parse(json["alarmDateTime"]),
     isPending: json["isPending"],
-    dayTime: json["dayTime"],
-    music: json["music"]
   );
   Map<String, dynamic> toMap() => {
     "id": id,
     "title": title,
+    "description": description,
     "alarmDateTime": alarmDateTime.toIso8601String(),
     "isPending": isPending,
-    "dayTime": dayTime,
-    "music": music
   };
 }
