@@ -1,5 +1,9 @@
 # alarm_clock_flutter
+If you find my code useful or give you more knowledge - experience, please make sure you want to buy me a coffee :
 
+ID/ mã tài khoản: 0041000370790
+bank : Vietcombank
+userName : Le Huu Phu => Email : phulealali@gmail.com => Phone : 0328814589
 A new Flutter project.
 
 ## Getting Started
