@@ -164,12 +164,12 @@ class AlarmDatabase{
           dateTime,
           platformChannelSpecifics
       ):
-        print(DateTime(dateTime.year, dateTime.month, dateTime.day+1, dateTime.hour, dateTime.minute, dateTime.second));
+        print(DateTime(dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second));
     await flutterLocalNotificationsPlugin.schedule(
         id,
         title,
         "Alarm & Notebook",
-        DateTime(dateTime.year, dateTime.month, dateTime.day+1, dateTime.hour, dateTime.minute, dateTime.second),
+        DateTime(dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second),
         platformChannelSpecifics
     );
     // ignore: deprecated_member_use

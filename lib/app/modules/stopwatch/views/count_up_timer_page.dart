@@ -1,5 +1,6 @@
 import 'package:alarm_clock_flutter/app/data/theme_data.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 class CountUpTimerPage extends StatefulWidget {
@@ -170,7 +171,7 @@ class _State extends State<CountUpTimerPage> {
                                           .add(StopWatchExecute.start);
                                     },
                                     child: const Text(
-                                      'Start',
+                                      "Star",
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   ),

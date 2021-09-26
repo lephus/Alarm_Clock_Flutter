@@ -1,9 +1,10 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SettingController extends GetxController {
-  //TODO: Implement SettingController
-
-  final count = 0.obs;
+  var isChangeLanguage = 1.obs;
   @override
   void onInit() {
     super.onInit();
@@ -13,8 +14,14 @@ class SettingController extends GetxController {
   void onReady() {
     super.onReady();
   }
-
+  void controllerShowSnackBar(String title, String message){
+    showSnackBar(title, message);
+  }
   @override
   void onClose() {}
-  void increment() => count.value++;
+  showSnackBar(String title, String message) {
+    Get.snackbar(title, message, backgroundColor: Colors.grey[200],
+        snackPosition: SnackPosition.TOP,
+        colorText: Colors.black);
+  }
 }

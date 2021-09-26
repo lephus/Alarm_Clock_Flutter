@@ -1,10 +1,11 @@
 import 'dart:async';
-
+import 'package:alarm_clock_flutter/app/data/language_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/alarm/controllers/alarm_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/alarm/views/alarm_view.dart';
 import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
 import 'package:alarm_clock_flutter/app/modules/notebook/controllers/notebook_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/notebook/views/notebook_view.dart';
+import 'package:alarm_clock_flutter/app/modules/setting/controllers/setting_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/setting/views/setting_view.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/controllers/stopwatch_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/views/stopwatch_view.dart';
@@ -16,45 +17,48 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
+// ignore: must_be_immutable
 class HomeView extends GetView<HomeController> {
+  LanguageController languageController = Get.put(LanguageController());
   final controllerAlarm = Get.put(AlarmController());
   final controllerTimer = Get.put(TimerController());
   final controllerStopwatch = Get.put(StopwatchController());
   final controllerNotebook = Get.put(NotebookController());
+  final controllerSetting = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     Timer.periodic(Duration(seconds: 1), (timer) {
       controller.setTime();
     });
-    return Scaffold(
-      backgroundColor: Color(0xFF2D2F41),
-      body: Row(
-        children: <Widget>[
-          Obx(() =>
-          SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  // ignore: deprecated_member_use
-                  buildMenuButton('Clock', 'clock_icon.png',0),
-                  SizedBox(height: 20,),
-                  buildMenuButton('Alarm', 'alarm_icon.png',1),
-                  SizedBox(height: 20,),
-                  buildMenuButton('Timer', 'timer_icon.png',2),
-                  SizedBox(height: 20,),
-                  buildMenuButton('Stopwatch', 'stopwatch_icon.png',3),
-                  SizedBox(height: 20,),
-                  buildMenuButton('Notebook', 'notebook.png',4),
-                  SizedBox(height: 20,),
-                  buildMenuButton('Setting', 'setting.png',5),
-                ],
-              )),
-          ),
-         // VerticalDivider(color: Colors.white70,width: 1,),
-          Obx(()=>ExpandScren())
-        ],
-      )
+    return  Scaffold(
+        backgroundColor: Color(0xFF2D2F41),
+        body: Row(
+          children: <Widget>[
+            Obx(() =>
+                SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        // ignore: deprecated_member_use
+                        buildMenuButton('Clock'.tr, 'clock_icon.png',0),
+                        SizedBox(height: 20,),
+                        buildMenuButton('Alarm'.tr, 'alarm_icon.png',1),
+                        SizedBox(height: 20,),
+                        buildMenuButton('Timer'.tr, 'timer_icon.png',2),
+                        SizedBox(height: 20,),
+                        buildMenuButton('Stopwatch'.tr, 'stopwatch_icon.png',3),
+                        SizedBox(height: 20,),
+                        buildMenuButton('Notebook'.tr, 'notebook.png',4),
+                        SizedBox(height: 20,),
+                        buildMenuButton('Setting'.tr, 'setting.png',5),
+                      ],
+                    )),
+            ),
+            // VerticalDivider(color: Colors.white70,width: 1,),
+            Obx(()=>ExpandScren())
+          ],
+        )
     );
   }
   Widget ExpandScren(){
@@ -70,7 +74,7 @@ class HomeView extends GetView<HomeController> {
                   flex: 1,
                   fit: FlexFit.tight,
                   child: Text(
-                    'Clock & Notebook',
+                    'Clock & Notebook'.tr,
                     style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 16),
                   ),
                 ),
@@ -105,8 +109,8 @@ class HomeView extends GetView<HomeController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Timezone',
-                          style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 18),
+                          'Timezone'.tr,
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                         Row(
                           children: <Widget>[

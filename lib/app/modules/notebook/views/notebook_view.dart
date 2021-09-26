@@ -17,17 +17,16 @@ class NotebookView extends GetView<NotebookController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Notebook',
+                'Notebook'.tr,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
-                    fontFamily: 'avenir',
                     fontWeight: FontWeight.w600
                 ),
               ),
               Obx(()=>Expanded(
                   child: controller.isDataProcessingSpec.value == true ?  Center(
-                    child: Center(child: Text("Loading...", style: TextStyle(color:Colors.white),),),
+                    child: Center(child: Text("Loading...".tr, style: TextStyle(color:Colors.white),),),
                   ) : ListView(
                     children: controller.notes.map<Widget>((note){
                       return Container(
@@ -58,7 +57,7 @@ class NotebookView extends GetView<NotebookController> {
                                       child: Text(
                                         '${note.alarmDateTime.day}- ${note.alarmDateTime.month}- ${note.alarmDateTime.year} ${note.alarmDateTime.hour}:${note.alarmDateTime.minute}',
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(fontFamily: 'avenir', color: Colors.white60, fontSize: 14.0),
+                                        style: TextStyle( color: Colors.white60, fontSize: 14.0),
                                       ),
                                     ),
                                   ],
@@ -75,7 +74,7 @@ class NotebookView extends GetView<NotebookController> {
                             ),
                             Text(
                               '${note.description}',
-                              style: TextStyle(color: Colors.white, fontSize: 16.0, fontFamily: 'avenir',),
+                              style: TextStyle(color: Colors.white, fontSize: 16.0,),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +89,6 @@ class NotebookView extends GetView<NotebookController> {
                                         note.title,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                            fontFamily: 'avenir',
                                             color: Colors.white,
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.bold
@@ -163,11 +161,10 @@ class NotebookView extends GetView<NotebookController> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Icon(Icons.add_to_photos_sharp, color: Colors.blueAccent, size: 34.0,),
-                                Text('Add Notebook',
+                                Text('Add Notebook'.tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 14,
-                                      fontFamily: 'avenir',
                                       fontWeight: FontWeight.w600
                                   ),)
                               ],
@@ -202,11 +199,10 @@ class NotebookView extends GetView<NotebookController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        'Add Notebook',
+                        'Add Notebook'.tr,
                         style: TextStyle(
                             color: Colors.greenAccent,
                             fontSize: 14,
-                            fontFamily: 'avenir',
                             fontWeight: FontWeight.w600
                         )
                     ),
@@ -217,9 +213,9 @@ class NotebookView extends GetView<NotebookController> {
                       decoration: InputDecoration(
                         fillColor: CustomColors.menuBackgroundColor,
                         filled: true,
-                        labelText: 'title...',
+                        labelText: 'titleNote...'.tr,
                         labelStyle: TextStyle(fontSize: 14.0, color: Colors.white),
-                        hintText: 'enter your title notebook...',
+                        hintText: 'enter your title notebook...'.tr,
                         hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -236,7 +232,7 @@ class NotebookView extends GetView<NotebookController> {
                       decoration: InputDecoration(
                         fillColor: CustomColors.menuBackgroundColor,
                         filled: true,
-                        labelText: 'description...',
+                        labelText: 'description...'.tr,
                         labelStyle: TextStyle(fontSize: 14.0, color: Colors.white),
                         hintText: 'enter your description notebook...',
                         hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
@@ -257,7 +253,6 @@ class NotebookView extends GetView<NotebookController> {
                             style: TextStyle(
                                 color: Colors.greenAccent,
                                 fontSize: 14,
-                                fontFamily: 'avenir',
                             )
                         ),
                         Obx(()=>Switch(
@@ -309,7 +304,6 @@ class NotebookView extends GetView<NotebookController> {
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16,
-                                              fontFamily: 'avenir',
                                               fontWeight: FontWeight.w600
                                           )
                                       )),
@@ -343,7 +337,6 @@ class NotebookView extends GetView<NotebookController> {
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16,
-                                              fontFamily: 'avenir',
                                               fontWeight: FontWeight.w600
                                           )
                                       )),
@@ -381,11 +374,10 @@ class NotebookView extends GetView<NotebookController> {
                             await controller.refreshListNotebook();
                             Get.back();
                           },
-                          child: Text('Save',
+                          child: Text('Save'.tr,
                               style: TextStyle(
                                   color: Colors.green[400],
                                   fontSize: 16,
-                                  fontFamily: 'avenir',
                                   fontWeight: FontWeight.w600
                               )
                           ),
@@ -416,11 +408,10 @@ class NotebookView extends GetView<NotebookController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        'Update Notebook',
+                        'Update Notebook'.tr,
                         style: TextStyle(
                             color: Colors.greenAccent,
                             fontSize: 14,
-                            fontFamily: 'avenir',
                             fontWeight: FontWeight.w600
                         )
                     ),
@@ -431,9 +422,9 @@ class NotebookView extends GetView<NotebookController> {
                       decoration: InputDecoration(
                         fillColor: CustomColors.menuBackgroundColor,
                         filled: true,
-                        labelText: 'title...',
+                        labelText: 'title...'.tr,
                         labelStyle: TextStyle(fontSize: 14.0, color: Colors.white),
-                        hintText: 'enter your title notebook...',
+                        hintText: 'enter your title notebook...'.tr,
                         hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -450,7 +441,7 @@ class NotebookView extends GetView<NotebookController> {
                       decoration: InputDecoration(
                         fillColor: CustomColors.menuBackgroundColor,
                         filled: true,
-                        labelText: 'description...',
+                        labelText: 'description...'.tr,
                         labelStyle: TextStyle(fontSize: 14.0, color: Colors.white),
                         hintText: 'enter your description notebook...',
                         hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
@@ -467,11 +458,10 @@ class NotebookView extends GetView<NotebookController> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                            "Notification",
+                            "Notification".tr,
                             style: TextStyle(
                               color: Colors.greenAccent,
                               fontSize: 14,
-                              fontFamily: 'avenir',
                             )
                         ),
                         Obx(()=>Switch(
@@ -524,7 +514,6 @@ class NotebookView extends GetView<NotebookController> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16,
-                                          fontFamily: 'avenir',
                                           fontWeight: FontWeight.w600
                                       )
                                   )),
@@ -558,7 +547,6 @@ class NotebookView extends GetView<NotebookController> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16,
-                                          fontFamily: 'avenir',
                                           fontWeight: FontWeight.w600
                                       )
                                   )),
@@ -592,11 +580,10 @@ class NotebookView extends GetView<NotebookController> {
                             await controller.refreshListNotebook();
                             Get.back();
                           },
-                          child: Text('Update',
+                          child: Text('Update'.tr,
                               style: TextStyle(
                                   color: Colors.green[400],
                                   fontSize: 16,
-                                  fontFamily: 'avenir',
                                   fontWeight: FontWeight.w600
                               )
                           ),

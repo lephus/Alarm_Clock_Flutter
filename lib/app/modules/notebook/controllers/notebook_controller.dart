@@ -39,8 +39,16 @@ class NotebookController extends GetxController {
     titleTextEditingController.dispose();
     descriptionTextEditingController.dispose();
   }
+  void controllerShowSnackBar(String title, String message){
+    showSnackBar(title, message);
+  }
   @override
   void onClose() {}
+  showSnackBar(String title, String message) {
+    Get.snackbar(title, message, backgroundColor: Colors.grey[200],
+        snackPosition: SnackPosition.TOP,
+        colorText: Colors.black);
+  }
 
   void resetValue(){
     titleTextEditingController.text = "";
@@ -59,11 +67,10 @@ class NotebookController extends GetxController {
       isDataProcessingSpec.value = false;
     }).onError((error, stackTrace){
       isDataProcessingSpec.value = false;
-      print('get list notebook is Error: $error');
     });
   }
-  void insertNotebookDatabase(var note){
-    _notebookDatabase.insertNotebook(note);
+  void insertNotebookDatabase(NotebookInfo note){
+     _notebookDatabase.insertNotebook(note);
   }
   void settingDate(var Date){
     formattedDate.value = DateFormat("yyyy-MM-dd").format(Date);

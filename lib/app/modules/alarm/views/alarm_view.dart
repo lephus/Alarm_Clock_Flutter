@@ -16,17 +16,16 @@ class AlarmView extends GetView<AlarmController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Alarm',
+                'Alarm'.tr,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
-                    fontFamily: 'avenir',
                     fontWeight: FontWeight.w600
                 ),
               ),
               Obx(()=>Expanded(
                   child: controller.isDataProcessingSpec.value == true ?  Center(
-                    child: Center(child: Text("Loading...", style: TextStyle(color:Colors.white),),),
+                    child: Center(child: Text("Loading...".tr, style: TextStyle(color:Colors.white),),),
                   ) : ListView(
                             addAutomaticKeepAlives: false,
                             cacheExtent: 100.0,
@@ -55,7 +54,7 @@ class AlarmView extends GetView<AlarmController> {
                                             child: Text(
                                               alarm.title,
                                               overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(fontFamily: 'avenir', color: Colors.white, fontSize: 18.0),
+                                              style: TextStyle(color: Colors.white, fontSize: 18.0),
                                             ),
                                           )
                                         ],
@@ -71,7 +70,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Text(
                                     '${controller.getDayRepeat(alarm.dayTime)}',
-                                  style: TextStyle(color: Colors.white, fontSize: 16.0, fontFamily: 'avenir',),
+                                  style: TextStyle(color: Colors.white, fontSize: 16.0,),
                                   ),
                                     Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,11 +143,10 @@ class AlarmView extends GetView<AlarmController> {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: <Widget>[
                                           Icon(Icons.add_to_photos_sharp, color: Colors.blueAccent, size: 34.0,),
-                                          Text('Add Alarm',
+                                          Text('Add Alarm'.tr,
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 14,
-                                            fontFamily: 'avenir',
                                             fontWeight: FontWeight.w600
                                           ),)
                                         ],
@@ -183,11 +181,10 @@ class AlarmView extends GetView<AlarmController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Add Alarm',
+                      'Add Alarm'.tr,
                         style: TextStyle(
                             color: Colors.greenAccent,
                             fontSize: 18,
-                            fontFamily: 'avenir',
                             fontWeight: FontWeight.w600
                         )
                     ),
@@ -198,9 +195,9 @@ class AlarmView extends GetView<AlarmController> {
                       decoration: InputDecoration(
                         fillColor: CustomColors.menuBackgroundColor,
                         filled: true,
-                        labelText: 'title',
+                        labelText: 'title'.tr,
                         labelStyle: TextStyle(fontSize: 20.0, color: Colors.white),
-                        hintText: 'enter your title alarm...',
+                        hintText: 'enter your title alarm...'.tr,
                         hintStyle: TextStyle(fontSize: 20.0, color: Colors.white),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -231,7 +228,6 @@ class AlarmView extends GetView<AlarmController> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 22,
-                                          fontFamily: 'avenir',
                                           fontWeight: FontWeight.w600
                                       )
                                   )),
@@ -255,11 +251,10 @@ class AlarmView extends GetView<AlarmController> {
                             ),
                             SizedBox(width: 12.0,),
                             Text(
-                                "Repeat",
+                                "Repeat".tr,
                                 style: TextStyle(
                                   color: Colors.greenAccent,
                                   fontSize: 18,
-                                  fontFamily: 'avenir',
                                 )
                             ),
                           ],
@@ -296,7 +291,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "Mo",
+                                        "Mo".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -319,7 +314,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "Tu",
+                                        "Tu".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -342,7 +337,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "We",
+                                        "We".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -365,7 +360,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "Th",
+                                        "Th".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -388,7 +383,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "Fr",
+                                        "Fr".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -411,7 +406,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "Sa",
+                                        "Sa".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -434,7 +429,7 @@ class AlarmView extends GetView<AlarmController> {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "Su",
+                                        "Su".tr,
                                         style: TextStyle(color: Colors.white, fontSize: 14.0),
                                       )
                                   )
@@ -451,7 +446,7 @@ class AlarmView extends GetView<AlarmController> {
                       children: [
                         OutlinedButton.icon(
                           icon: Icon(Icons.queue_music),
-                          label: Text("Select music", style: TextStyle(color: Colors.white),),
+                          label: Text("Select music".tr, style: TextStyle(color: Colors.white),),
                           onPressed: () => Get.back(),
                           style: ElevatedButton.styleFrom(
                             side: BorderSide(width: 0.0, color: Colors.white),
@@ -497,11 +492,10 @@ class AlarmView extends GetView<AlarmController> {
                           await controller.refreshListAlarm();
                           Get.back();
                         },
-                        child: Text('Save',
+                        child: Text('Save'.tr,
                         style: TextStyle(
                             color: Colors.green[400],
                             fontSize: 22,
-                            fontFamily: 'avenir',
                             fontWeight: FontWeight.w600
                           )
                         ),
@@ -532,11 +526,10 @@ class AlarmView extends GetView<AlarmController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        'Update Alarm',
+                        'Update Alarm'.tr,
                         style: TextStyle(
                             color: Colors.greenAccent,
                             fontSize: 18,
-                            fontFamily: 'avenir',
                             fontWeight: FontWeight.w600
                         )
                     ),
@@ -547,9 +540,9 @@ class AlarmView extends GetView<AlarmController> {
                       decoration: InputDecoration(
                         fillColor: CustomColors.menuBackgroundColor,
                         filled: true,
-                        labelText: 'title',
+                        labelText: 'title'.tr,
                         labelStyle: TextStyle(fontSize: 20.0, color: Colors.white),
-                        hintText: 'enter your title alarm...',
+                        hintText: 'enter your title alarm...'.tr,
                         hintStyle: TextStyle(fontSize: 20.0, color: Colors.white),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -580,7 +573,6 @@ class AlarmView extends GetView<AlarmController> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 22,
-                                      fontFamily: 'avenir',
                                       fontWeight: FontWeight.w600
                                   )
                               )),
@@ -604,11 +596,10 @@ class AlarmView extends GetView<AlarmController> {
                             ),
                             SizedBox(width: 12.0,),
                             Text(
-                                "Repeat",
+                                "Repeat".tr,
                                 style: TextStyle(
                                   color: Colors.greenAccent,
                                   fontSize: 18,
-                                  fontFamily: 'avenir',
                                 )
                             ),
                           ],
@@ -626,7 +617,7 @@ class AlarmView extends GetView<AlarmController> {
                     ),
                     SizedBox(height: 10.0,),
                     Obx(()=>
-                    controller.isRepeat.value == false ? SizedBox() :
+                     controller.isRepeat.value == false ? SizedBox() :
                     Row(
                       children: [
                         Expanded(
@@ -645,7 +636,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "Mo",
+                                    "Mo".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -668,7 +659,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "Tu",
+                                    "Tu".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -691,7 +682,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "We",
+                                    "We".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -714,7 +705,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "Th",
+                                    "Th".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -737,7 +728,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "Fr",
+                                    "Fr".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -760,7 +751,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "Sa",
+                                    "Sa".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -783,7 +774,7 @@ class AlarmView extends GetView<AlarmController> {
                               ),
                               Expanded(
                                   child: Text(
-                                    "Su",
+                                    "Su".tr,
                                     style: TextStyle(color: Colors.white, fontSize: 14.0),
                                   )
                               )
@@ -800,7 +791,7 @@ class AlarmView extends GetView<AlarmController> {
                       children: [
                         OutlinedButton.icon(
                           icon: Icon(Icons.queue_music),
-                          label: Text("Select music", style: TextStyle(color: Colors.white),),
+                          label: Text("Select music".tr, style: TextStyle(color: Colors.white),),
                           onPressed: () => Get.back(),
                           style: ElevatedButton.styleFrom(
                             side: BorderSide(width: 0.0, color: Colors.white),
@@ -843,11 +834,10 @@ class AlarmView extends GetView<AlarmController> {
                             await controller.refreshListAlarm();
                             Get.back();
                           },
-                          child: Text('Update',
+                          child: Text('Update'.tr,
                               style: TextStyle(
                                   color: Colors.green[400],
                                   fontSize: 22,
-                                  fontFamily: 'avenir',
                                   fontWeight: FontWeight.w600
                               )
                           ),

@@ -51,12 +51,13 @@ class NotebookDatabase{
     return database;
   }
 
-  void insertNotebook(NotebookInfo notebookInfo) async{
+  Future<int> insertNotebook(NotebookInfo notebookInfo) async{
     var db = await this.database;
-    await db.insert(tableNotebook, notebookInfo.toMap());
+    var tmp = await db.insert(tableNotebook, notebookInfo.toMap());
     notebookInfo.isPending == 0 ?
     await scheduleNotebook(notebookInfo.alarmDateTime, notebookInfo.title, notebookInfo.description, notebookInfo.id)
     : null;
+    return tmp;
   }
 
   Future<List<NotebookInfo>> getNotebooks() async{

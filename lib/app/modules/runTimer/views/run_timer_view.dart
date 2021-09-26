@@ -15,7 +15,7 @@ class RunTimerView extends GetView<RunTimerController> {
       backgroundColor: CustomColors.pageBackgroundColor,
       appBar: AppBar(
         backgroundColor: CustomColors.pageBackgroundColor,
-        title: Text("Timer is running"),
+        title: Text("Timer is running".tr),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +46,6 @@ class RunTimerView extends GetView<RunTimerController> {
                 isTimerTextShown: true,
                 autoStart: true,
                 onStart: () {
-                  print('Countdown Started');
                 },
                 onComplete: () {
                   controller.isStart.value = false;
@@ -77,7 +76,7 @@ class RunTimerView extends GetView<RunTimerController> {
               Expanded(
                   child: OutlinedButton.icon(
                     icon: Icon(Icons.transit_enterexit),
-                    label: Text("Exit", style: TextStyle(color: Colors.white),),
+                    label: Text("Exit".tr, style: TextStyle(color: Colors.white),),
                     onPressed: () => Get.back(),
                     style: ElevatedButton.styleFrom(
                       side: BorderSide(width: 1.0, color: Colors.white),
@@ -94,7 +93,7 @@ class RunTimerView extends GetView<RunTimerController> {
               Expanded(
                 child: OutlinedButton.icon(
                   icon: Icon(Icons.refresh),
-                  label: Text("ReStart", style: TextStyle(color: Colors.white,),),
+                  label: Text("ReStart".tr, style: TextStyle(color: Colors.white,),),
                   onPressed: () => _controller.restart(duration: _duration),
                   style: ElevatedButton.styleFrom(
                     side: BorderSide(width: 1.0, color: Colors.white),
