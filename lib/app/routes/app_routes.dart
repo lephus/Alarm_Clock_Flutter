@@ -12,6 +12,7 @@ abstract class Routes {
   static const RUN_TIMER = _Paths.RUN_TIMER;
   static const NOTEBOOK = _Paths.NOTEBOOK;
   static const SETTING = _Paths.SETTING;
+  static const TIME_ZONE = _Paths.TIME_ZONE;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const RUN_TIMER = '/run-timer';
   static const NOTEBOOK = '/notebook';
   static const SETTING = '/setting';
+  static const TIME_ZONE = '/time-zone';
 }

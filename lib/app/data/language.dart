@@ -46,7 +46,8 @@ class Language extends Translations{
           'please make sure you want to buy me a coffee':"please make sure you want to buy me a coffee",
           'Coppy success':"Coppy success",
           'Contact work':"Contact work",
-          'Start':"Start"
+          'Start':"Start",
+          'The application is still being developed and added functions. hope you ignore the shortcomings, the application will be updated soon, Thanks so much':"The application is still being developed and added functions. hope you ignore the shortcomings, the application will be updated soon, Thanks so much"
         },
         'vn_VN': {
           'Clock & Notebook': "Clock & Notebook",
@@ -89,7 +90,8 @@ class Language extends Translations{
           'please make sure you want to buy me a coffee':"Để duy trì sản phẩm, bạn có thể ủng hộ tác giả 1 ly cafe",
           'Coppy success':"Đã sao chép",
           'Contact work':"Liên hệ hợp tác",
-          'Start':"Bắt đầu"
+          'Start':"Bắt đầu",
+          'The application is still being developed and added functions. hope you ignore the shortcomings, the application will be updated soon, Thanks so much':"ứng dụng vẫn được tiếp tục phát triển và bổ sung các chức năng. mong bạn bỏ qua các thiếu sót, ứng dụng sẽ sớm được cập nhật.Cảm ơn bạn rất nhiều"
         },
       };
 }

@@ -14,6 +14,8 @@ import 'package:alarm_clock_flutter/app/modules/setting/bindings/setting_binding
 import 'package:alarm_clock_flutter/app/modules/setting/views/setting_view.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/bindings/stopwatch_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/views/stopwatch_view.dart';
+import 'package:alarm_clock_flutter/app/modules/timeZone/bindings/time_zone_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/timeZone/views/time_zone_view.dart';
 import 'package:alarm_clock_flutter/app/modules/timer/bindings/timer_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/timer/views/timer_view.dart';
 
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.SETTING,
       page: () => SettingView(),
       binding: SettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.TIME_ZONE,
+      page: () => TimeZoneView(),
+      binding: TimeZoneBinding(),
     ),
   ];
 }

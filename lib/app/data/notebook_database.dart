@@ -1,4 +1,5 @@
 import 'package:alarm_clock_flutter/app/modules/notebook/notebook_info.dart';
+// import 'package:alarm_clock_flutter/app/modules/timeZone/local_data_info.dart';
 import 'package:alarm_clock_flutter/main.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:sqflite/sqflite.dart';
@@ -9,6 +10,15 @@ final String columnTitle = 'title';
 final String columnDescription = "description";
 final String columnDateTime = 'alarmDateTime';
 final String columnPending = 'isPending';
+
+
+// final String tableLocal = 'dataLocal';
+// final String columnIdLocal = 'id';
+// final String columnTitleLocal = 'title';
+// final String columnCodeNumber = 'codeNumber';
+// final String columnNote = 'note';
+// index 0 => language
+// index 1 => list Zomtime
 
 
 class NotebookDatabase{
@@ -48,6 +58,32 @@ class NotebookDatabase{
           ''');
         }
     );
+    // create table localData
+    // openDatabase(
+    //     path,
+    //     version: 1,
+    //     onCreate: (db, version) {
+    //       db.execute('''
+    //       CREATE TABLE $tableLocal (
+    //       $columnIdLocal integer primary key autoincrement,
+    //       $columnTitleLocal text not null,
+    //       $columnCodeNumber integer,
+    //       $columnNote text not null,
+    //       )
+    //       ''');
+    //     }
+    // );
+    // // 0 vietnamese
+    // // 1 english
+    // var defineLanguage = LocalDataInfo(
+    //     id: 0,
+    //     title: 'language',
+    //     codeNumber: 0,
+    //     note: ''
+    // );
+    // var db = await this.database;
+    // await db.insert(tableLocal, defineLanguage.toMap());
+
     return database;
   }
 
@@ -171,4 +207,38 @@ class NotebookDatabase{
         platformChannelSpecifics
     );
   }
+
+  // void insertLocalData(LocalDataInfo localDataInfo) async{
+  //   var db = await this.database;
+  //   await db.insert(tableLocal, localDataInfo.toMap());
+  // }
+  //
+  // Future<List<LocalDataInfo>> getLocalData() async{
+  //   List<LocalDataInfo> _localData = [];
+  //   var db = await this.database;
+  //   var result = await db.query(tableLocal);
+  //   result.forEach((element) {
+  //     var tmp = LocalDataInfo.fromMap(element);
+  //     _localData.add(tmp);
+  //   });
+  //   return _localData;
+  // }
+  //
+  // Future<int> deleteLocalData(int id) async{
+  //   var db = await this.database;
+  //   var res = await db.delete(tableLocal, where: '$columnIdLocal = ?', whereArgs: [id]);
+  //   return res;
+  // }
+  //
+  // Future<int> updateLanguage(int id)async{
+  //   var db = await this.database;
+  //   var res = await db.rawUpdate('''
+  //   UPDATE ${tableLocal}
+  //   SET
+  //   ${columnCodeNumber} = ?
+  //   WHERE ${columnIdLocal} = ?
+  //   ''',
+  //       [id ,0]);
+  //   return res;
+  // }
 }

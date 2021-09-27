@@ -182,6 +182,13 @@ class SettingView extends GetView<SettingController> {
                   subtitle: Text('Contact work'.tr, style: TextStyle( color: Colors.white60, fontSize: 12)),
                 ),
               ),
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                    "The application is still being developed and added functions. hope you ignore the shortcomings, the application will be updated soon, Thanks so much".tr,
+                    style: TextStyle( color: Colors.white60, fontSize: 12)
+                ),
+              )
             ],
           ),
         ),
