@@ -4,6 +4,8 @@ import 'package:alarm_clock_flutter/app/modules/alarm/bindings/alarm_binding.dar
 import 'package:alarm_clock_flutter/app/modules/alarm/views/alarm_view.dart';
 import 'package:alarm_clock_flutter/app/modules/clock/bindings/clock_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
+import 'package:alarm_clock_flutter/app/modules/extract_text_to_image/bindings/extract_text_to_image_binding.dart';
+import 'package:alarm_clock_flutter/app/modules/extract_text_to_image/views/extract_text_to_image_view.dart';
 import 'package:alarm_clock_flutter/app/modules/home/bindings/home_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/home/views/home_view.dart';
 import 'package:alarm_clock_flutter/app/modules/notebook/bindings/notebook_binding.dart';
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.TIME_ZONE,
       page: () => TimeZoneView(),
       binding: TimeZoneBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXTRACT_TEXT_TO_IMAGE,
+      page: () => ExtractTextToImageView(),
+      binding: ExtractTextToImageBinding(),
     ),
   ];
 }

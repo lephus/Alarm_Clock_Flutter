@@ -13,6 +13,7 @@ abstract class Routes {
   static const NOTEBOOK = _Paths.NOTEBOOK;
   static const SETTING = _Paths.SETTING;
   static const TIME_ZONE = _Paths.TIME_ZONE;
+  static const EXTRACT_TEXT_TO_IMAGE = _Paths.EXTRACT_TEXT_TO_IMAGE;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const NOTEBOOK = '/notebook';
   static const SETTING = '/setting';
   static const TIME_ZONE = '/time-zone';
+  static const EXTRACT_TEXT_TO_IMAGE = '/extract-text-to-image';
 }

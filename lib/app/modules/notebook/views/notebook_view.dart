@@ -350,7 +350,17 @@ class NotebookView extends GetView<NotebookController> {
                         )
                     ),
                     // ignore: deprecated_member_use
-
+                    OutlinedButton.icon(
+                          icon: Icon(Icons.refresh),
+                          label: Text("Text to image", style: TextStyle(color: Colors.white,),),
+                          onPressed: () => Get.toNamed('/extract-text-to-image'),
+                          style: ElevatedButton.styleFrom(
+                            side: BorderSide(width: 1.0, color: Colors.white),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ),
+                        ),
                     Container(
                         alignment: Alignment.center,
                         margin: EdgeInsets.all(20.0),
