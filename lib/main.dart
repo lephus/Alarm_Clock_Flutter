@@ -31,6 +31,7 @@ void main() async{
     runApp(
       GetMaterialApp(
         title: "Application",
+        debugShowCheckedModeBanner: false,
         translations: Language(),
         locale: Locale('en', 'US'),
         fallbackLocale: Locale('en', "US"),

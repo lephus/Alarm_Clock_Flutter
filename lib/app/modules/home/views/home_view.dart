@@ -5,15 +5,11 @@ import 'package:alarm_clock_flutter/app/modules/alarm/views/alarm_view.dart';
 import 'package:alarm_clock_flutter/app/modules/clock/views/clock_view.dart';
 import 'package:alarm_clock_flutter/app/modules/notebook/controllers/notebook_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/notebook/views/notebook_view.dart';
-import 'package:alarm_clock_flutter/app/modules/setting/controllers/setting_controller.dart';
-import 'package:alarm_clock_flutter/app/modules/setting/views/setting_view.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/controllers/stopwatch_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/views/stopwatch_view.dart';
 import 'package:alarm_clock_flutter/app/modules/timer/controllers/timer_controller.dart';
 import 'package:alarm_clock_flutter/app/modules/timer/views/timer_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
@@ -24,7 +20,6 @@ class HomeView extends GetView<HomeController> {
   final controllerTimer = Get.put(TimerController());
   final controllerStopwatch = Get.put(StopwatchController());
   final controllerNotebook = Get.put(NotebookController());
-  final controllerSetting = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     Timer.periodic(Duration(seconds: 1), (timer) {
@@ -50,8 +45,6 @@ class HomeView extends GetView<HomeController> {
                         buildMenuButton('Stopwatch'.tr, 'stopwatch_icon.png',3),
                         SizedBox(height: 20,),
                         buildMenuButton('Notebook'.tr, 'notebook.png',4),
-                        SizedBox(height: 20,),
-                        buildMenuButton('Setting'.tr, 'setting.png',5),
                       ],
                     )),
             ),
@@ -145,9 +138,6 @@ class HomeView extends GetView<HomeController> {
       }
       if(controller.count.value == 4){
         return Expanded(child: NotebookView());
-      }
-      else{
-        return Expanded(child: SettingView());
       }
     }
   }

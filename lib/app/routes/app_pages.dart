@@ -12,8 +12,6 @@ import 'package:alarm_clock_flutter/app/modules/notebook/bindings/notebook_bindi
 import 'package:alarm_clock_flutter/app/modules/notebook/views/notebook_view.dart';
 import 'package:alarm_clock_flutter/app/modules/runTimer/bindings/run_timer_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/runTimer/views/run_timer_view.dart';
-import 'package:alarm_clock_flutter/app/modules/setting/bindings/setting_binding.dart';
-import 'package:alarm_clock_flutter/app/modules/setting/views/setting_view.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/bindings/stopwatch_binding.dart';
 import 'package:alarm_clock_flutter/app/modules/stopwatch/views/stopwatch_view.dart';
 import 'package:alarm_clock_flutter/app/modules/timeZone/bindings/time_zone_binding.dart';
@@ -63,11 +61,6 @@ class AppPages {
       name: _Paths.NOTEBOOK,
       page: () => NotebookView(),
       binding: NotebookBinding(),
-    ),
-    GetPage(
-      name: _Paths.SETTING,
-      page: () => SettingView(),
-      binding: SettingBinding(),
     ),
     GetPage(
       name: _Paths.TIME_ZONE,
